@@ -29,7 +29,7 @@ public class CustomerController {
         return customerService.save(customer);
     }
 
-    @GetMapping("/get-by-last-name/{lastName}")
+    @GetMapping("/find-by-last-name/{lastName}")
     public List<Customer> findByLastName(@PathVariable String lastName) {
         return customerService.findByLastName(lastName);
     }
