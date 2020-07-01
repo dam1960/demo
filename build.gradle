@@ -10,6 +10,9 @@ sourceCompatibility = '1.8'
 
 repositories {
     mavenCentral()
+    maven {
+        url 'http://oss.jfrog.org/simple/oss-snapshot-local/'
+    }
 }
 
 dependencies {
@@ -18,7 +21,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-rest'
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
-    implementation 'io.springfox:springfox-swagger2:2.10.5'
+    implementation 'io.springfox:springfox-boot-starter:3.0.0-SNAPSHOT'
     implementation 'io.springfox:springfox-swagger-ui:2.10.5'
 
     runtimeOnly 'org.springframework.boot:spring-boot-devtools'
