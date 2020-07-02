@@ -2,6 +2,8 @@ package com.dam.sample.controller;
 
 import com.dam.sample.domain.Customer;
 import com.dam.sample.service.CustomerService;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.models.media.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
