@@ -3,10 +3,12 @@ package com.dam.sample.service;
 import com.dam.sample.dao.CustomerDao;
 import com.dam.sample.domain.Customer;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class CustomerService {
 
     private final CustomerDao customerDao;

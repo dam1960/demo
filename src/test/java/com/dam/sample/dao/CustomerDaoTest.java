@@ -27,7 +27,7 @@ class CustomerDaoTest {
     }
 
     @Test
-    void save() {
+    void saveInsert() {
         Customer customer = new Customer();
         customer.setId(5L);
         customer.setFirstName("Barney");
@@ -36,6 +36,17 @@ class CustomerDaoTest {
 
         Customer customer1 = customerDao.save(customer);
         assertNotNull(customer1);
+    }
+
+    @Test
+    void saveUpdate() {
+        Customer customer = new Customer();
+        customer.setId(1L);
+        customer.setEmail("gonzo@gmail.com");
+
+        Customer customer1 = customerDao.save(customer);
+        assertNotNull(customer1);
+        assertEquals("gonzo@gmail.com", customer1.getEmail());
     }
 
     @Test

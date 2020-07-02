@@ -2,8 +2,6 @@ package com.dam.sample.controller;
 
 import com.dam.sample.domain.Customer;
 import com.dam.sample.service.CustomerService;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.models.media.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,12 +19,12 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    @GetMapping("/find-by-id/{id}")
+    @GetMapping(value = "/find-by-id/{id}")
     public Customer findById(@PathVariable Long id) {
         return customerService.findById(id);
     }
 
-    @PostMapping("/save")
+    @PostMapping(value = "/save", consumes = "application/json")
     public Customer save(@RequestBody Customer customer) {
         return customerService.save(customer);
     }
