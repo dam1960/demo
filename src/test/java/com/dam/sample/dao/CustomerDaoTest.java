@@ -10,7 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
@@ -29,7 +30,6 @@ class CustomerDaoTest {
     @Test
     void saveInsert() {
         Customer customer = new Customer();
-        customer.setId(5L);
         customer.setFirstName("Barney");
         customer.setLastName("Gumble");
         customer.setEmail("bgumble@gmail.com");
