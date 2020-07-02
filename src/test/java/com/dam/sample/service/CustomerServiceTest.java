@@ -29,7 +29,6 @@ class CustomerServiceTest {
     @Test
     void save() {
         Customer customer = new Customer();
-        customer.setId(5L);
         customer.setFirstName("Barney");
         customer.setLastName("Gumble");
         customer.setEmail("bgumble@gmail.com");
