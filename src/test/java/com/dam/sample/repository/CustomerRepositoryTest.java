@@ -1,4 +1,4 @@
-package com.dam.sample.dao;
+package com.dam.sample.repository;
 
 import com.dam.sample.domain.Customer;
 import org.junit.jupiter.api.Test;
@@ -17,14 +17,14 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 @Transactional
-class CustomerDaoTest {
+class CustomerRepositoryTest {
 
     @Autowired
-    private CustomerDao customerDao;
+    private CustomerRepository customerRepository;
 
     @Test
     void findById() {
-        Customer customer = customerDao.findById(1);
+        Customer customer = customerRepository.findById(1);
         assertEquals(1, customer.getId());
     }
 
@@ -35,7 +35,7 @@ class CustomerDaoTest {
         customer.setLastName("Gumble");
         customer.setEmail("bgumble@gmail.com");
 
-        Customer customer1 = customerDao.save(customer);
+        Customer customer1 = customerRepository.save(customer);
         assertNotNull(customer1);
     }
 
@@ -45,20 +45,20 @@ class CustomerDaoTest {
         customer.setId(1L);
         customer.setEmail("gonzo@gmail.com");
 
-        Customer customer1 = customerDao.save(customer);
+        Customer customer1 = customerRepository.save(customer);
         assertNotNull(customer1);
         assertEquals("gonzo@gmail.com", customer1.getEmail());
     }
 
     @Test
     void findByLastName() {
-        List<Customer> customers = customerDao.findByLastName("Simpson");
+        List<Customer> customers = customerRepository.findByLastName("Simpson");
         assertEquals(2, customers.size());
     }
 
     @Test
     void deleteById() {
-        customerDao.deleteById(1L);
-        assertNull(customerDao.findById(1L));
+        customerRepository.deleteById(1L);
+        assertNull(customerRepository.findById(1L));
     }
 }

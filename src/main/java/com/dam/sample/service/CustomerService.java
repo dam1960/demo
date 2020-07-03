@@ -1,7 +1,7 @@
 package com.dam.sample.service;
 
-import com.dam.sample.dao.CustomerDao;
 import com.dam.sample.domain.Customer;
+import com.dam.sample.repository.CustomerRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,25 +11,25 @@ import java.util.List;
 @Transactional
 public class CustomerService {
 
-    private final CustomerDao customerDao;
+    private final CustomerRepository customerRepository;
 
-    public CustomerService(CustomerDao customerDao) {
-        this.customerDao = customerDao;
+    public CustomerService(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
     }
 
     public Customer findById(long id) {
-        return customerDao.findById(id);
+        return customerRepository.findById(id);
     }
 
     public Customer save(Customer customer) {
-        return customerDao.save(customer);
+        return customerRepository.save(customer);
     }
 
     public List<Customer> findByLastName(String lastName) {
-        return customerDao.findByLastName(lastName);
+        return customerRepository.findByLastName(lastName);
     }
 
     public void deleteById(Long id) {
-        customerDao.deleteById(id);
+        customerRepository.deleteById(id);
     }
 }
