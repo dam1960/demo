@@ -36,6 +36,7 @@ public class CustomerControllerTest {
     }
 
     @Test
+    @SuppressWarnings("unchecked")
     public void findByLastName() {
         assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/customer/find-by-last-name/Simpson", List.class));
     }
