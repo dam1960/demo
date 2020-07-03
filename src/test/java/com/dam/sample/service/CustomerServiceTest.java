@@ -47,7 +47,7 @@ class CustomerServiceTest {
 
     @Test
     void delete() {
-        customerService.delete(1L);
+        customerService.deleteById(1L);
         assertNull(customerService.findById(1L));
     }
 }

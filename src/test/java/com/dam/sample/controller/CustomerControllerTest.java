@@ -44,6 +44,6 @@ public class CustomerControllerTest {
 
     @Test
     public void delete() throws RestClientException {
-        this.restTemplate.delete("http://localhost:" + port + "/customer/delete/1L");
+        this.restTemplate.delete("http://localhost:" + port + "/customer/delete-by-id/1L");
     }
 }

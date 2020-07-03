@@ -57,11 +57,8 @@ class CustomerDaoTest {
     }
 
     @Test
-    void delete() {
-        Customer customer = new Customer();
-        customer.setId(1L);
-        customerDao.delete(customer);
-
+    void deleteById() {
+        customerDao.deleteById(1L);
         assertNull(customerDao.findById(1L));
     }
 }

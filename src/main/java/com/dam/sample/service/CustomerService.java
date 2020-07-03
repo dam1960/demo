@@ -29,10 +29,7 @@ public class CustomerService {
         return customerDao.findByLastName(lastName);
     }
 
-    public void delete(Long id) {
-        Customer customer = new Customer();
-        customer.setId(id);
-
-        customerDao.delete(customer);
+    public void deleteById(Long id) {
+        customerDao.deleteById(id);
     }
 }

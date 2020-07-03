@@ -35,8 +35,8 @@ public class CustomerController {
         return customerService.findByLastName(lastName);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/delete-b-id/{id}")
     public void delete(@PathVariable Long id) {
-        customerService.delete(id);
+        customerService.deleteById(id);
     }
 }
