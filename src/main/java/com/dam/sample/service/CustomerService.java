@@ -28,4 +28,11 @@ public class CustomerService {
     public List<Customer> findByLastName(String lastName) {
         return customerDao.findByLastName(lastName);
     }
+
+    public void delete(Long id) {
+        Customer customer = new Customer();
+        customer.setId(id);
+
+        customerDao.delete(customer);
+    }
 }
