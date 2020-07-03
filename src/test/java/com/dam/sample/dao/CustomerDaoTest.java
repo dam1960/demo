@@ -12,6 +12,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
@@ -53,5 +54,14 @@ class CustomerDaoTest {
     void findByLastName() {
         List<Customer> customers = customerDao.findByLastName("Simpson");
         assertEquals(2, customers.size());
+    }
+
+    @Test
+    void delete() {
+        Customer customer = new Customer();
+        customer.setId(1L);
+        customerDao.delete(customer);
+
+        assertNull(customerDao.findById(1L));
     }
 }
