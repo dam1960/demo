@@ -15,6 +15,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class CustomerControllerTest {
 
+    private String url = "http://localhost:";
+
     @LocalServerPort
     private int port;
 
@@ -23,7 +25,7 @@ public class CustomerControllerTest {
 
     @Test
     public void findById() {
-        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/customer/find-by-id/1", Customer.class));
+        assertThat(this.restTemplate.getForObject(url + port + "/customer/find-by-id/1", Customer.class));
     }
 
     @Test
@@ -33,17 +35,22 @@ public class CustomerControllerTest {
         customer.setLastName("Gumble");
         customer.setEmail("bgumble@gmail.com");
 
-        assertThat(this.restTemplate.postForObject("http://localhost:" + port + "/customer/save", customer, Customer.class));
+        assertThat(this.restTemplate.postForObject(url + port + "/customer/save", customer, Customer.class));
     }
 
     @Test
     @SuppressWarnings("unchecked")
     public void findByLastName() {
-        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/customer/find-by-last-name/Simpson", List.class));
+        assertThat(this.restTemplate.getForObject(url + port + "/customer/find-by-last-name/Simpson", List.class));
     }
 
     @Test
     public void delete() throws RestClientException {
-        this.restTemplate.delete("http://localhost:" + port + "/customer/delete-by-id/1L");
+        this.restTemplate.delete(url + port + "/customer/delete-by-id/1L");
+    }
+
+    @Test
+    public void findAll() {
+        this.restTemplate.getForObject(url + port + "/customer/find-all", Iterable.class);
     }
 }

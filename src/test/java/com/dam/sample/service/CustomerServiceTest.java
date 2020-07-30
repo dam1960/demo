@@ -50,4 +50,10 @@ class CustomerServiceTest {
         customerService.deleteById(1L);
         assertNull(customerService.findById(1L));
     }
+
+    @Test
+    void findAll() {
+        Iterable<Customer> customers = customerService.findAll();
+        assertNotNull(customers);
+    }
 }
