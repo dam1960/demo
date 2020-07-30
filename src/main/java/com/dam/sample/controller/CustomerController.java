@@ -34,4 +34,9 @@ public class CustomerController {
     public void delete(@PathVariable Long id) {
         customerService.deleteById(id);
     }
+
+    @GetMapping("/find-all")
+    public Iterable<Customer> findAll() {
+        return customerService.findAll();
+    }
 }
