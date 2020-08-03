@@ -51,6 +51,6 @@ public class CustomerControllerTest {
 
     @Test
     public void findAll() {
-        this.restTemplate.getForObject(url + port + "/customer/find-all", Iterable.class);
+        assertThat(this.restTemplate.getForObject(url + port + "/customer/find-all", Iterable.class));
     }
 }
