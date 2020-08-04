@@ -37,6 +37,7 @@ class CustomerRepositoryTest {
 
         Customer customer1 = customerRepository.save(customer);
         assertNotNull(customer1);
+        assertEquals(5L, customer1.getId());
     }
 
     @Test
