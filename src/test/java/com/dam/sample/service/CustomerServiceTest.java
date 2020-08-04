@@ -37,6 +37,7 @@ class CustomerServiceTest {
 
         Customer customer1 = customerService.save(customer);
         assertNotNull(customer1);
+        assertEquals(5L, customer1.getId());
     }
 
     @Test
