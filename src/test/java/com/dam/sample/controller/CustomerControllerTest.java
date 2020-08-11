@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class CustomerControllerTest {
 
-    private String url = "http://localhost:";
+    private final String url = "http://localhost:";
 
     @LocalServerPort
     private int port;
