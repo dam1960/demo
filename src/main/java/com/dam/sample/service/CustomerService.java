@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -17,7 +18,7 @@ public class CustomerService {
         this.customerRepository = customerRepository;
     }
 
-    public Customer findById(long id) {
+    public Optional<Customer> findById(long id) {
         return customerRepository.findById(id);
     }
 
@@ -25,8 +26,8 @@ public class CustomerService {
         return customerRepository.save(customer);
     }
 
-    public List<Customer> findByLastName(String lastName) {
-        return customerRepository.findByLastName(lastName);
+    public List<Customer> findAllByLastName(String lastName) {
+        return customerRepository.findAllByLastName(lastName);
     }
 
     public void deleteById(Long id) {

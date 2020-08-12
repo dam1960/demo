@@ -17,7 +17,7 @@ public class CustomerController {
 
     @GetMapping(value = "/find-by-id/{id}")
     public Customer findById(@PathVariable Long id) {
-        return customerService.findById(id);
+        return customerService.findById(id).get();
     }
 
     @PostMapping(value = "/save", consumes = "application/json")
@@ -25,9 +25,9 @@ public class CustomerController {
         return customerService.save(customer);
     }
 
-    @GetMapping("/find-by-last-name/{lastName}")
+    @GetMapping("/find-all-by-last-name/{lastName}")
     public List<Customer> findByLastName(@PathVariable String lastName) {
-        return customerService.findByLastName(lastName);
+        return customerService.findAllByLastName(lastName);
     }
 
     @DeleteMapping("/delete-by-id/{id}")
