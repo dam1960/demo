@@ -32,6 +32,7 @@ class CustomerServiceTest {
     void findById() {
         Optional<Customer> customer = customerService.findById(1);
         assertEquals("David", customer.get().getFirstName());
+        assertEquals("Miranda", customer.get().getLastName());
     }
 
     @Test
