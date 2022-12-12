@@ -10,7 +10,7 @@ import org.springframework.web.client.RestClientException;
 
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertNotNull;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class CustomerControllerTest {
@@ -25,7 +25,8 @@ public class CustomerControllerTest {
 
     @Test
     public void findById() {
-        assertThat(this.restTemplate.getForObject(url + port + "/customer/find-by-id/1", Customer.class));
+        Customer customer = this.restTemplate.getForObject(url + port + "/customer/find-by-id/1", Customer.class);
+        assertNotNull(customer);
     }
 
     @Test
@@ -35,13 +36,15 @@ public class CustomerControllerTest {
         customer.setLastName("Gumble");
         customer.setEmail("bgumble@gmail.com");
 
-        assertThat(this.restTemplate.postForObject(url + port + "/customer/save", customer, Customer.class));
+        Customer customer1 = this.restTemplate.postForObject(url + port + "/customer/save", customer, Customer.class);
+        assertNotNull(customer1);
     }
 
     @Test
     @SuppressWarnings("unchecked")
     public void findByLastName() {
-        assertThat(this.restTemplate.getForObject(url + port + "/customer/find-all-by-last-name/Simpson", List.class));
+        List<Customer> customers =  this.restTemplate.getForObject(url + port + "/customer/find-all-by-last-name/Simpson", List.class);
+        assertNotNull(customers);
     }
 
     @Test
@@ -51,6 +54,7 @@ public class CustomerControllerTest {
 
     @Test
     public void findAll() {
-        assertThat(this.restTemplate.getForObject(url + port + "/customer/find-all", Iterable.class));
+        Iterable customers = this.restTemplate.getForObject(url + port + "/customer/find-all", Iterable.class);
+        assertNotNull(customers);
     }
 }
